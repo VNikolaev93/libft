@@ -6,7 +6,7 @@
 /*   By: bsharna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 15:01:21 by bsharna           #+#    #+#             */
-/*   Updated: 2018/11/29 16:30:49 by bsharna          ###   ########.fr       */
+/*   Updated: 2018/12/19 19:45:54 by bsharna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	size_t s;
+	size_t	i;
 
-	s = 0;
-	while (src[s] != '\0' && s < len)
+	i = 0;
+	while (src[i] != '\0' && i < len)
 	{
-		dst[s] = src[s];
-		s++;
+		dst[i] = src[i];
+		i++;
 	}
-	while (s < len)
+	while (i < len)
 	{
-		dst[s] = '\0';
-		s++;
+		dst[i] = '\0';
+		i++;
 	}
 	return (dst);
 }
