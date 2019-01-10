@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_unix.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsharna <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 20:21:21 by bsharna           #+#    #+#             */
-/*   Updated: 2018/12/27 17:03:51 by bsharna          ###   ########.fr       */
+/*   Created: 2019/01/10 15:56:24 by bsharna           #+#    #+#             */
+/*   Updated: 2019/01/10 15:58:40 by bsharna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	ft_putchar(int c)
 {
-	unsigned char			*u_dst;
-	const unsigned char		*u_src;
-	size_t					i;
+	int one;
+	int two;
 
-	u_dst = (unsigned char*)dst;
-	u_src = (unsigned char*)src;
-	i = 0;
-	while (i < n)
+	if (c < 128)
+		write(1, &c, 1);
+	else
 	{
-		u_dst[i] = u_src[i];
-		if (u_dst[i] == (unsigned char)c)
-		{
-			return (u_dst + i + 1);
-		}
-		i++;
+		one = 192 + c / 64;
+		two = 128 + c % 64;
+		write(1, &one, 1);
+		write(1, &two, 1);
 	}
-	return (NULL);
 }
